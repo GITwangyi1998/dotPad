@@ -40,5 +40,10 @@ namespace dotPad.Views
             App.Config.FontFamily = fontFamily;
             App.WriteConfig();
         }
+
+        private void Button_OK_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

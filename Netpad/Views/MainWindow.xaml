@@ -68,12 +68,13 @@
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="WhiteSmoke">
-            <MenuItem Margin="2 2 2 2" Header="_File" Height="25" Width="36">
+            <MenuItem  Header="_File" HorizontalAlignment="Left" Height="25">
+                <!--Margin="2 2 2 2" Height="20" Width="36"-->
                 <MenuItem Header="_Open" Command="{Binding OpenCommand}" />
                 <MenuItem Header="_Save" Command="{Binding SaveCommand}" />
             </MenuItem>
@@ -82,15 +83,14 @@
                 <MenuItem Header="_Copy" />
                 <MenuItem Header="_Paste" />
             </MenuItem>-->
-            <!-- Add more MenuItems as needed -->
         </Menu>
-        <Button Style="{StaticResource ImageButtonStyle}" Margin="2 2.5 2 2.5" Grid.Row="0" Width="28" HorizontalAlignment="Right" Command="{Binding OpenSettingsDialogCommand}">
+        <Button Style="{StaticResource ImageButtonStyle}" Height="20" Margin="2 2.5 2 2.5" Grid.Row="0" Width="28" HorizontalAlignment="Right" Command="{Binding OpenSettingsDialogCommand}">
             <Image Source="../images/option.png"/>
         </Button>
 
-        <Grid   Grid.Row="1">
+        <Grid Grid.Row="1">
             <ScrollViewer x:Name="sv" Template="{StaticResource MyScrollViewer}">
-                <TextBox Template="{DynamicResource TextBoxTemplate}" BorderThickness="0.5"  FontFamily="{Binding Source={x:Static local:App.Config}, Path=FontFamily}" FontSize="{Binding FontSize}" TextWrapping="Wrap" AcceptsReturn="True">
+                <TextBox Template="{DynamicResource TextBoxTemplate}" BorderThickness="0.5"  FontFamily="{Binding Source={x:Static local:App.Config}, Path=FontFamily}" FontSize="{Binding FontSize}" TextWrapping="{Binding Source={x:Static local:App.Config}, Path=IsWrap, Converter={StaticResource WrapBool}}" AcceptsReturn="True">
                     <TextBox.Text>
                         <Binding Path="CurrentText" UpdateSourceTrigger="PropertyChanged"/>
                     </TextBox.Text>

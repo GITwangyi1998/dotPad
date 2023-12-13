@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:dotPad.Views"
+        xmlns:local="clr-namespace:dotPad"
         xmlns:n="clr-namespace:dotPad.Controls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" UseLayoutRounding="True" SnapsToDevicePixels="True"
@@ -11,56 +11,102 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="90"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <StackPanel Grid.Column="0" Grid.RowSpan="2" x:Name="OptionsStackPanel" Margin="0" MaxWidth="180" MinWidth="130">
-            <StackPanel.Resources>
-                <Style BasedOn="{StaticResource {x:Type n:ExtendedRadioButton}}" TargetType="{x:Type n:ExtendedRadioButton}">
-                    <Setter Property="Padding" Value="2,2,2,2"/>
-                    <Setter Property="FontSize" Value="17"/>
-                    <Setter Property="FontFamily" Value="Segoe UI Semilight"/>
-                    <Setter Property="Cursor" Value="Hand"/>
-                    <Setter Property="ContentWidth" Value="24"/>
-                    <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
-                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                </Style>
-            </StackPanel.Resources>
-
-            <n:ExtendedRadioButton Text="字体" Icon="../images/font.png" x:Name="font"/>
-            <n:ExtendedRadioButton Text="字体" Icon="../images/option.png"/>
-            <!--<n:ExtendedRadioButton Text="字体" Icon="{StaticResource Vector.FIconBrush}"/>-->
-
-        </StackPanel>
-
-        <Grid Grid.Column="1">
+        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MaxWidth="120"/>
+                <ColumnDefinition Width="Auto" MinWidth="90"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="字体设置:" FontFamily="仿宋" FontSize="13" Margin="10 0 10 0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}"/>
-            <ComboBox Grid.Row="0" Grid.Column="1" x:Name="fontbox" SelectionChanged="ChangeFont" Width="120" VerticalAlignment="Center" HorizontalAlignment="Left"  Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}">
-                <ComboBoxItem Content="宋体"/>
-                <ComboBoxItem Content="黑体"/>
-                <ComboBoxItem Content="仿宋"/>
-                <ComboBoxItem Content="微软雅黑"/>
-                <ComboBoxItem Content="楷体"/>
-                <ComboBoxItem Content="Cascadia Mono Light"/>
-            </ComboBox>
-
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="字体大小:" FontFamily="仿宋" FontSize="13" Margin="10 10 10 0" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}"/>
-            <TextBox x:Name="sizebox" Grid.Row="1" Grid.Column="1" Margin="0 10" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}"/>
-        </Grid>
         
+            <StackPanel Grid.Column="0" Grid.RowSpan="2" x:Name="OptionsStackPanel" Margin="0" MaxWidth="180" MinWidth="130">
+                <StackPanel.Resources>
+                    <Style BasedOn="{StaticResource {x:Type n:ExtendedRadioButton}}" TargetType="{x:Type n:ExtendedRadioButton}">
+                        <Setter Property="Padding" Value="2,2,2,2"/>
+                        <Setter Property="FontSize" Value="17"/>
+                        <Setter Property="FontFamily" Value="Segoe UI Semilight"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="ContentWidth" Value="24"/>
+                        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <n:ExtendedRadioButton Text="字体" Icon="../images/font.png" x:Name="font"/>
+                <n:ExtendedRadioButton Text="常规" Icon="../images/option.png" x:Name="general"/>
+                <!--<n:ExtendedRadioButton Text="字体" Icon="{StaticResource Vector.FIconBrush}"/>-->
+
+            </StackPanel>
+        
+            <!--内容部分-->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MaxWidth="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!--字体设置-->
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="字体设置:" FontFamily="仿宋" FontSize="13" Margin="10 0 10 0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="fontbox" SelectionChanged="ChangeFont" Width="120" VerticalAlignment="Center" HorizontalAlignment="Left"  Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}">
+                    <ComboBoxItem Content="宋体"/>
+                    <ComboBoxItem Content="黑体"/>
+                    <ComboBoxItem Content="仿宋"/>
+                    <ComboBoxItem Content="微软雅黑"/>
+                    <ComboBoxItem Content="楷体"/>
+                    <ComboBoxItem Content="Cascadia Mono Light"/>
+                </ComboBox>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="字体大小:" FontFamily="仿宋" FontSize="13" Margin="10 10 10 0" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}"/>
+                <TextBox x:Name="sizebox" Grid.Row="1" Grid.Column="1" Margin="0 10" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="{Binding IsChecked, ElementName=font, Converter={StaticResource Bool2Visibility}}"/>
+
+
+                <!--常规设置-->
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="是否自动换行:" FontFamily="仿宋" FontSize="13" Margin="10 0 10 0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsChecked, ElementName=general, Converter={StaticResource Bool2Visibility}}"/>
+                <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Source={x:Static local:App.Config}, Path=IsWrap}" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="{Binding IsChecked, ElementName=general, Converter={StaticResource Bool2Visibility}}"/>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" >
+            <DockPanel Margin="5,0" Height="50" >
+                <!-- OK Button -->
+                <Button Click="Button_OK_Click" Name="Button_OK" MinWidth="80" MaxWidth="150" Margin="35,0,5,0" HorizontalAlignment="Right" Height="26">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#8D9FA1"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="3">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#4E7A7B"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#275D5F"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    OK
+                </Button>
+                <!-- End OK Button -->
+
+            </DockPanel>
+        </Grid>
 
     </Grid>
 </Window>

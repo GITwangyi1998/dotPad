@@ -37,5 +37,19 @@ namespace dotPad.Models
                 OnPropertyChanged(nameof(FontSize));
             }
         }
+
+        private bool _isWrap;
+        public bool IsWrap
+        {
+            get
+            {
+                return _isWrap;
+            }
+            set
+            {
+                _isWrap = value;
+                OnPropertyChanged(nameof(IsWrap));
+            }
+        }
     }
 }

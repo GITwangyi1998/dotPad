@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Windows.Controls;
 using dotPad.Views;
+using Netpad.Utils;
 
 namespace dotPad.ViewModel
 {
@@ -138,7 +139,8 @@ namespace dotPad.ViewModel
                 CurrentFilePath = openFileDialog.FileName;
                 CurrentFileName = CurrentFilePath.Split('\\').Last();
 
-                CurrentText = File.ReadAllText(CurrentFilePath);
+                //CurrentText = File.ReadAllText(CurrentFilePath);
+                CurrentText = Util.ReadTextFileWithEncoding(CurrentFilePath);
                 CurrentFileName = CurrentFileName.Substring(1);
             }
         }
@@ -161,6 +163,10 @@ namespace dotPad.ViewModel
 
         private void ExecuteSaveCommand(object o)
         {
+            if (string.IsNullOrEmpty(CurrentFilePath))
+            {
+                return;
+            }
             CurrentFileName = CurrentFileName.Substring(1);
             File.WriteAllText(CurrentFilePath, CurrentText);
         }

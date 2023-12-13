@@ -6,14 +6,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DC6F481F-0F34-439C-B640-FE5E129EFA08}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Netpad</RootNamespace>
-    <AssemblyName>Netpad</AssemblyName>
+    <RootNamespace>dotPad</RootNamespace>
+    <AssemblyName>dotPad</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,6 +61,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UtfUnknown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90217ce7a23260d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\UTF.Unknown.2.5.1\lib\net40\UtfUnknown.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -71,12 +76,18 @@
     <Compile Include="Command\CustomCommand.cs" />
     <Compile Include="Controls\ExtendedRadioButton.cs" />
     <Compile Include="Converter\MultiLineTitleConverter.cs" />
+    <Compile Include="Converter\WrapBoolConverter.cs" />
     <Compile Include="Models\ConfigModel.cs" />
+    <Compile Include="Utils\Util.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Views\Option.xaml.cs">
       <DependentUpon>Option.xaml</DependentUpon>
     </Compile>
+    <Page Include="Style\CommonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\ExtendedRadioButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -40,7 +40,8 @@ namespace dotPad
                 File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(new ConfigModel()
                 {
                     FontFamily = "仿宋",
-                    FontSize = 14
+                    FontSize = 14,
+                    IsWrap = true,
                 }));              
             }
 
