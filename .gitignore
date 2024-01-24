@@ -1,0 +1,132 @@
+# 忽略以下文件和文件夹
+
+# 操作系统临时文件
+.DS_Store
+Thumbs.db
+
+# 编译输出
+bin/
+obj/
+out/
+
+# 依赖和包管理器目录
+node_modules/
+vendor/
+
+# Visual Studio Code 配置
+.vscode/
+.idea/
+.vs/
+
+# 编译生成的文件
+*.log
+*.pot
+*.pyc
+__pycache__/
+dist/
+build/
+
+# 私人配置文件
+.env
+
+# macOS Finder 自定义文件图标
+Icon?
+
+# macOS系统文件
+.AppleDouble
+.AppleDesktop
+.AppleDB
+.AppleDesktopNetwork
+.AppleSingle
+
+# Windows系统文件
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+# Python相关
+*.pyc
+*.pyo
+__pycache__/
+*.pyc/
+*.pyo/
+*.pyd
+
+# Java相关
+*.class
+
+# 编辑器临时/备份文件
+*~
+*.swp
+*.swo
+*.bak
+
+# 打包工具和本地开发服务器生成的文件
+packaged-*/ 
+/coverage/
+/dist/
+/tmp/
+/local/
+/Procfile.dev
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Vue.js
+/dist/
+/node_modules/
+/npm-debug.log*
+
+# Laravel
+/bootstrap/
+/storage/
+/public/storage
+
+# Node.js
+/node_modules/
+npm-debug.log*
+
+# Gradle
+.gradle/
+/build/
+
+# Maven
+/target/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~

@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>images\icon.ico</ApplicationIcon>
+    <ApplicationIcon>images\txt.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -141,16 +141,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\option.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\txt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\txt.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

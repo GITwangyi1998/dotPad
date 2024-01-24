@@ -76,7 +76,7 @@ namespace dotPad.ViewModel
                 if (!CurrentFileName.StartsWith("*"))
                 {
                     CurrentFileName = "*" + CurrentFileName;
-                }                
+                }
                 OnPropertyChanged(nameof(CurrentText));
                 OnPropertyChanged(nameof(Count));
             }

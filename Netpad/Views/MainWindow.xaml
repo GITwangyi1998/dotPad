@@ -6,7 +6,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:dotPad"
         mc:Ignorable="d"
-        Title="{Binding CurrentFileName}" MinHeight="220" MinWidth="250" Width="740" Height="550" Icon="../images/icon.png">
+        Title="{Binding CurrentFileName}" MinHeight="220" MinWidth="250" Width="740" Height="550" Icon="../images/txt.png">
     <Window.InputBindings>
         <KeyBinding Key="S" Modifiers="Control" Command="{Binding SaveCommand}" />
     </Window.InputBindings>
@@ -31,16 +31,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <!--<Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                    --><!-- 鼠标移入时的背景色 --><!--
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                    --><!-- 鼠标点击时的背景色 --><!--
-                </Trigger>
-            </Style.Triggers>-->
         </Style>
         <ControlTemplate x:Key="TextBoxTemplate" TargetType="{x:Type TextBoxBase}">
             <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
@@ -89,13 +79,20 @@
         </Button>
 
         <Grid Grid.Row="1">
-            <ScrollViewer x:Name="sv" Template="{StaticResource MyScrollViewer}">
+            <!--<ScrollViewer x:Name="sv" Template="{StaticResource MyScrollViewer}">
                 <TextBox Template="{DynamicResource TextBoxTemplate}" BorderThickness="0.5"  FontFamily="{Binding Source={x:Static local:App.Config}, Path=FontFamily}" FontSize="{Binding FontSize}" TextWrapping="{Binding Source={x:Static local:App.Config}, Path=IsWrap, Converter={StaticResource WrapBool}}" AcceptsReturn="True">
                     <TextBox.Text>
-                        <Binding Path="CurrentText" UpdateSourceTrigger="PropertyChanged"/>
+                        <Binding Path="CurrentText" UpdateSourceTrigger="PropertyChanged" />
                     </TextBox.Text>
                 </TextBox>
-            </ScrollViewer>
+            </ScrollViewer>-->
+            <FlowDocumentScrollViewer>
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="{Binding CurrentText, UpdateSourceTrigger=PropertyChanged}" />
+                    </Paragraph>
+                </FlowDocument>
+            </FlowDocumentScrollViewer>
         </Grid>
         <StatusBar Grid.Row="2" Name="StatusBar1">
             <StatusBarItem>
